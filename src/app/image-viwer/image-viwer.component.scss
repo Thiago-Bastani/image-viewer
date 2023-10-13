@@ -3,8 +3,10 @@
   width: fit-content;
   height: fit-content;
   padding: 1px;
+  overflow: hidden;
 }
 
 .image {
-  cursor: grab;
+  position: relative;
+  cursor: move;
 }

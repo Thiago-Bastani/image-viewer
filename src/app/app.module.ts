@@ -3,18 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { ImageViwerComponent } from './image-viwer/image-viwer.component';
-import { DragDirective } from './image-viwer/drag-directive/drag.directive';
+import { CdkDrag } from '@angular/cdk/drag-drop';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ImageViwerComponent,
-    DragDirective
-  ],
-  imports: [
-    BrowserModule
-  ],
+  declarations: [AppComponent, ImageViwerComponent],
+  imports: [BrowserModule, CdkDrag],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
