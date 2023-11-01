@@ -1,0 +1,43 @@
+<div class="fullscreen" [ngClass]="active ? '' : 'inactive'">
+  <button
+    class="close-btn"
+    color="warn"
+    mat-fab
+    (click)="closeFullScreenMode()"
+  >
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  <div class="image-container">
+    <div
+      class="image-div"
+      cdkDrag
+      [cdkDragFreeDragPosition]="dragPosition"
+      (cdkDragStarted)="OnDragStart()"
+    >
+      <img [src]="src" class="image" #currentImage (wheel)="onScroll($event)" />
+    </div>
+  </div>
+  <div class="panel">
+    <button
+      class="fab btn-ajuste"
+      color="warn"
+      *ngIf="positionChanged"
+      mat-fab
+      (click)="resetImagePosition()"
+    >
+      <mat-icon>center_focus_strong</mat-icon>
+    </button>
+    <button class="fab" color="primary" mat-fab (click)="zoomIn()">
+      <mat-icon>zoom_in</mat-icon>
+    </button>
+    <button class="fab" color="primary" mat-fab (click)="zoomOut()">
+      <mat-icon>zoom_out</mat-icon>
+    </button>
+    <button class="fab" color="primary" mat-fab (click)="rotateLeft()">
+      <mat-icon>rotate_left</mat-icon>
+    </button>
+    <button class="fab" color="primary" mat-fab (click)="rotateRight()">
+      <mat-icon>rotate_right</mat-icon>
+    </button>
+  </div>
+</div>

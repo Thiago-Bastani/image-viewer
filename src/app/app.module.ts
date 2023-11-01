@@ -2,13 +2,13 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { ImageViwerComponent } from './image-viwer/image-viwer.component';
-import { CdkDrag } from '@angular/cdk/drag-drop';
+import { ComponentsModule } from './components/components.module';
 
 @NgModule({
-  declarations: [AppComponent, ImageViwerComponent],
-  imports: [BrowserModule, CdkDrag],
+  declarations: [AppComponent],
+  imports: [BrowserModule, ComponentsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+

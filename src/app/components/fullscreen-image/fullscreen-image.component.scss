@@ -1,0 +1,68 @@
+.fullscreen {
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba($color: #000000, $alpha: 0.87);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.inactive {
+  display: none;
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.image {
+  position: relative;
+  width: 25%;
+  cursor: move;
+}
+
+.image-div {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: move;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.panel {
+  position: fixed;
+  z-index: 20;
+  bottom: 2rem;
+  right: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.fab {
+  width: 3rem;
+  height: 3rem;
+  margin-top: 0.3rem;
+}
+
+.btn-ajuste {
+  margin-top: -3rem;
+}
+
+.close-btn {
+  width: 3rem;
+  height: 3rem;
+  position: fixed;
+  top: 5rem;
+  right: 2rem;
+  z-index: 20;
+}

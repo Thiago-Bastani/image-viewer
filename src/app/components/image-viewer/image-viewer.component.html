@@ -1,0 +1,63 @@
+<div class="image-container" [ngClass]="imageLoaded ? 'd-none' : ''">
+  <ngb-carousel
+    #carousel
+    (slid)="OnSlide($event)"
+    [showNavigationArrows]="false"
+    [showNavigationIndicators]="false"
+    activeId="0"
+    [animation]="false"
+  >
+    <ng-template ngbSlide *ngFor="let img of images; index as i">
+      <div class="scroll-wrapper" (wheel)="onScroll($event)">
+        <div
+          class="image"
+          cdkDrag
+          [cdkDragFreeDragPosition]="dragPosition"
+          (cdkDragStarted)="OnDragStart()"
+        >
+          <img
+            [src]="images[i]"
+            class="image"
+            [id]="i"
+            #currentImage
+            (onload)="imageLoaded = true"
+          />
+        </div>
+      </div>
+    </ng-template>
+  </ngb-carousel>
+  <div class="panel">
+    <button
+      class="fab btn-ajuste"
+      color="warn"
+      *ngIf="positionChanged"
+      mat-fab
+      (click)="resetImagePosition()"
+    >
+      <mat-icon>center_focus_strong</mat-icon>
+    </button>
+    <button class="fab" color="primary" mat-fab (click)="zoomIn()">
+      <mat-icon>zoom_in</mat-icon>
+    </button>
+    <button class="fab" color="primary" mat-fab (click)="zoomOut()">
+      <mat-icon>zoom_out</mat-icon>
+    </button>
+    <button class="fab" color="primary" mat-fab (click)="rotateLeft()">
+      <mat-icon>rotate_left</mat-icon>
+    </button>
+    <button class="fab" color="primary" mat-fab (click)="rotateRight()">
+      <mat-icon>rotate_right</mat-icon>
+    </button>
+    <button class="fab" color="primary" mat-fab (click)="openFullScreenMode()">
+      <mat-icon>fullscreen</mat-icon>
+    </button>
+  </div>
+  <div class="arrows" *ngIf="images.length > 1">
+    <button class="fab" color="primary" mat-fab (click)="previous()">
+      <mat-icon>keyboard_arrow_left</mat-icon>
+    </button>
+    <button class="fab" color="primary" mat-fab (click)="next()">
+      <mat-icon>keyboard_arrow_right</mat-icon>
+    </button>
+  </div>
+</div>
